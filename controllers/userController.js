@@ -7,6 +7,8 @@ router.get('/test', (req, res) => {
     res.send('testing user controller yuuuuuuu');
 });
 
+
+// REGISTER A NEW USER
 router.post('/register', (req, res) => {
     User.create({ 
         email: req.body.email, 
@@ -23,6 +25,9 @@ router.post('/register', (req, res) => {
     }))
 });
 
+
+
+// LOGIN AN ESTABLISHED USER
 router.post('/login', (req, res) => {
     User.findOne({
         where:{
