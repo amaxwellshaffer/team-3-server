@@ -3,7 +3,7 @@ require('dotenv').config();
 const Express = require('express');
 const database = require('./db');
 const userController = require('./controllers/userController');
-//const pirateMimeController = require('./controllers/pirateMimeController');
+const movieController = require('./controllers/movieController');
 
 const app = Express();
 
@@ -11,7 +11,7 @@ app.use(require('./middleware/headers'));
 app.use(Express.json());
 
 app.use('/user', userController);
-//app.use('/piratemime', pirateMimeController);
+app.use('/movies', movieController);
 
 database.sync();
 
