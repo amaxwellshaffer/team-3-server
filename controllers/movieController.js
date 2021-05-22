@@ -2,6 +2,7 @@ const router = require('express').Router();
 const db = require('../db');
 const MovieReview = require('../models/movieReview');
 const validate = require('../middleware/validateSession');
+const User = require('../models/user');
 
 //CREATE NEW REVIEW
 router.post('/review', validate, (req, res) => {
@@ -9,7 +10,8 @@ router.post('/review', validate, (req, res) => {
         title: req.body.title,
         year: req.body.year,
         comment: req.body.comment,
-        owner: req.user.id
+        owner: req.user.id,
+        posterPath: req.body.posterPath
     })
         .then(review => res.status(200).json({ review }))
         .catch(err => res.status(500).json({ message: 'Could not Create Review', error: err }))
@@ -41,6 +43,16 @@ router.get('/profile', validate, (req, res) => {
     .catch(err => res.status(500).json({message: 'no reviews found for this user', error: err}))
 });
 
-
+// //GET ENTRIES BY USER
+// router.get('/users/:username', validateSession, (req, res) => {
+//     User.findAll({
+//         where: {
+//             userName: req.params.username
+//         }
+//     })
+//         .then(chosenUser => MovieReview.findAll({ where: {owner: chosenUser.id}}))
+//         .then(profile => res.status(200).json({message: `found ${profile.length} reviews for this user`, reviews: profile}))
+//         .catch(err => res.status(500).json({message: 'no reviews found for this user', error: err}))
+// });
 
 module.exports = router;

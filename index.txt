@@ -9,3 +9,15 @@ max branccchhh yes!
 testing from Ashleigh's branch 
 
 
+base url
+for full size:
+https://image.tmdb.org/t/p/original
+
+"w500" dictates the width in pixels
+https://image.tmdb.org/t/p/w500
+
+sample poster paths as returned by the movie fetch
+/uLOmOF5IzWoyrgIF5MfUnh5pa1X.jpg
+/9i3plLl89DHMz7mahksDaAo7HIS.jpg
+/rsgklbt5KxeuUuchehnLACxzisP.jpg
+/fPtlCO1yQtnoLHOwKtWz7db6RGU.jpg
