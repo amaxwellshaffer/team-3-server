@@ -16,6 +16,10 @@ module.exports = database.define('movie-review', {
     },
     owner:{
         type: DataTypes.INTEGER
+    },
+    posterPath:{
+        type: DataTypes.STRING,
+        allowNull: true,
     }
     
 });
